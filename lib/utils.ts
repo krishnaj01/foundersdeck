@@ -12,3 +12,11 @@ export function formatDate(date: string) {
     year: 'numeric'
   })
 }
+
+export function checkPlural(num: number) {
+  return num > 1 ? 's' : ''
+}
+
+export function parseServerActionResponse<T>(response: T) {
+  return JSON.parse(JSON.stringify(response));
+}
