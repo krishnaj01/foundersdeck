@@ -43,5 +43,10 @@ export const startup = defineType({
             name: 'pitch',
             type: 'markdown',
         }),
+        defineField({
+            name: 'upvotes',
+            type: 'array',
+            of: [{ type: 'reference', to: [{ type: 'author' }] }],
+        }),
     ]
 })

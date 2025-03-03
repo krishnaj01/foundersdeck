@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FoundersDeck Platform
+FoundersDeck is a platform where users can pitch their startup ideas and showcase their thoughts and works. It serves as a space for them to share their vision and explore ideas from various others.
 
-## Getting Started
+## 🚀 Live Application
+https://foundersdeck.vercel.app/
 
-First, run the development server:
+## 🎯 Key Learnings and Features
 
+- Applied different **rendering strategies** such as **SSR (Server-Side Rendering)**, **PPR (Partial Pre-rendering)**, and **SSG (Static Site Generation)** based on the project requirements.
+
+- Worked with **server and client components** in Next.js to optimize performance and user experience.
+
+- Used **Sentry** to track and analyze website issues in a detailed manner, including crashes, errors, and performance bottlenecks.
+
+## 🛠️ Tech Stack
+- **Frontend:** Next.js, React.js, HTML5, CSS3, Tailwind CSS
+- **Database:** Sanity (with basic GROQ query proficiency)
+- **APIs:** GitHub OAuth, Sentry, RESTful API design
+- **Hosting:** Vercel
+
+## ⚙️ Setup and Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/krishnaj01/foundersdeck.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory:
+```bash
+cd foundersdeck
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Install dependencies:
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Set up environment variables:
+*(Create a .env file in the root directory and add the following)*
 
-## Learn More
+```
+AUTH_SECRET=<your-auth-secret-key-for-authentication-sessions>
+AUTH_GITHUB_ID=<your-auth-github-client-id>
+AUTH_GITHUB_SECRET=<your-auth-github-client-secret>
+NEXT_PUBLIC_SANITY_PROJECT_ID="xyd1z192"
+NEXT_PUBLIC_SANITY_DATASET="production"
+SANITY_WRITE_TOKEN=<your-sanity-write-token>
+SENTRY_AUTH_TOKEN=<your-sentry-auth-token>
+```
 
-To learn more about Next.js, take a look at the following resources:
+5. Run the development server:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+6. Access the website locally at http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Contribution Guidelines
+To contribute:
+1. Fork the repository.
+2. Create a new branch for your feature/bug fix.
+3. Commit your changes with meaningful commit messages.
+4. Push to your fork and submit a pull request.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Contact
+For any issues or suggestions, contact me at krishnaj@iitbhilai.ac.in

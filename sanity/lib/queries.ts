@@ -33,6 +33,10 @@ export const STARTUP_VIEWS_QUERY = defineQuery(`*[_type == 'startup' && _id == $
   _id, views
 }`);
 
+export const STARTUP_UPVOTES_QUERY = defineQuery(`*[_type == 'startup' && _id == $id][0]{
+  _id, "upvotes": upvotes[]->_id
+}`);
+
 export const AUTHOR_BY_GITHUB_ID_QUERY = defineQuery(`*[_type == 'author' && id == $id][0]{
   _id,
   id,

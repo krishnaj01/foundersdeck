@@ -10,6 +10,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import View from '@/components/View';
 import StartupCard, { StartupCardType } from '@/components/StartupCard';
 import { auth } from '@/auth';
+import Votes from '@/components/Votes';
 
 // export const experimental_ppr = true;
 
@@ -18,7 +19,7 @@ const md = markdownit()
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
     const { id } = await params;
-    
+
     const session = await auth();
 
     // to make parallel requests (parallel rendering is faster)
@@ -64,7 +65,13 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
                         {session && session?.id === post.author?._id && <Link href={`/startup/edit/${post?._id}`} className='hover:text-blue-500 hover:underline'>Edit Startup Details</Link>}
                     </div>
 
-                    <h3 className='text-30-bold'>Pitch Details</h3>
+                    <div className='flex justify-between items-center'>
+                        <h3 className='text-30-bold'>Pitch Details</h3>
+                        {/* <p>Upvote</p> */}
+                        <Suspense fallback={<p>Loading...</p>}>
+                            <Votes startupId={post._id} userId={session?.id}/>
+                        </Suspense>
+                    </div>
                     {parsedContent ? (
                         <article
                             className='prose max-w-4xl font-work-sans break-all'

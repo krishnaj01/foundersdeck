@@ -5,6 +5,7 @@ import { parseServerActionResponse } from "./utils";
 import slugify from "slugify";
 import { writeClient } from "@/sanity/lib/write-client";
 import { StartupCardType } from "@/components/StartupCard";
+import { v4 as uuidv4 } from 'uuid'; 
 
 export const createPitch = async (state: any, form: FormData, pitch: string) => {
     const session = await auth();
@@ -91,6 +92,42 @@ export const updatePitch = async (state: any, form: FormData, pitch: string, pos
             status: "ERROR"
         });
     }
-
 }
 
+export const vote = async (state: any, startupId: string, upvotes: string[]) => {
+    const session = await auth();
+
+    if (!session) {
+        return parseServerActionResponse({
+            error: "Not authenticated",
+            status: "ERROR"
+        });
+    }
+
+    try {
+        const userId = session.id;
+        if (!upvotes) upvotes = [];
+        if (upvotes.includes(userId)) {
+            upvotes = upvotes.filter(id => id !== userId); // Remove upvote (toggle)
+        } else {
+            upvotes.push(userId); // Add upvote
+        }
+
+        const result = await writeClient.patch(startupId).set({
+            upvotes: upvotes.map(id => ({ _type: "reference", _ref: id, _key: uuidv4() }))
+        }).commit();
+
+        return parseServerActionResponse({
+            ...result,
+            error: "",
+            status: "SUCCESS"
+        });
+
+    } catch (error) {
+        console.log(error);
+        return parseServerActionResponse({
+            error: JSON.stringify(error),
+            status: "ERROR"
+        });
+    }
+}
