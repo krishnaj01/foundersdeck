@@ -4,6 +4,13 @@ FoundersDeck is a platform where users can pitch their startup ideas and showcas
 ## 🚀 Live Application
 https://foundersdeck.vercel.app/
 
+<div style="display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; gap: 1rem">
+    <img src="./assets/screenshots/homepage.png" alt="FoundersDeck Home Page" style="width: 40%; height: auto;">
+    <img src="./assets/screenshots/profilepage.png" alt="FoundersDeck Profile Page" style="width: 40%; height: auto;">
+    <img src="./assets/screenshots/createpage.png" alt="FoundersDeck Create Page" style="width: 40%; height: auto;">
+    <img src="./assets/screenshots/startuppage.png" alt="FoundersDeck Startup Page" style="width: 40%; height: auto;">
+</div>
+
 ## 🎯 Key Learnings and Features
 
 - Applied different **rendering strategies** such as **SSR (Server-Side Rendering)**, **PPR (Partial Pre-rendering)**, and **SSG (Static Site Generation)** based on the project requirements.
